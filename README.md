@@ -4,6 +4,7 @@ This is a group project for the course MTH707A: Markov Chain Monte Carlo at IIT 
 ### Group Memebers : 
 1. Aritra Majumdar
 2. Arkajyoti Bhattacharjee
+3. Sanket Agrawal
 
 ### References :
 
