@@ -1,4 +1,4 @@
-### optimal scaling nd motivation for adaptive mcmc
+## optimal scaling nd motivation for adaptive mcmc
 set.seed(1011)
 
 # target - N(0,1)
