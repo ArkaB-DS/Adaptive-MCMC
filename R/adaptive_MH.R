@@ -1,3 +1,4 @@
+### R Code for Rosenthal's Adaptive MH
 set.seed(1)
 library(mvtnorm)
 library(clusterGeneration)
