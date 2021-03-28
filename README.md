@@ -29,5 +29,7 @@ This is a group project for the course MTH707A: Markov Chain Monte Carlo at IIT 
 * Examples of Adaptive MCMC - Gareth O. Roberts, Jeffrey S. Rosenthal
 
 #### 2. Secondary
-* Efficient Bernoulli factory MCMC for intractable posteriors - Vats et. al. 
-* An Adaptive Metropolis Algorithm - Harrio et. al.
+* Efficient Bernoulli factory MCMC for intractable posteriors - Vats et al. 
+* An Adaptive Metropolis Algorithm - Harrio et al.
+* Optimal Scaling and Adaptive Markov Chain Monte Carlo - Krzysztof Latuszynski (Slides)
+* The Bernoulli Factory, extensions and applications - Krzysztof Latuszynski et al. (Slides)
