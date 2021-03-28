@@ -21,7 +21,7 @@ To be decided yet
   
 
 
-### [References:](https://github.com/ArkaB-DS/Adaptive-MCMC/tree/main/References)
+### References:
 
 #### 1. Primary
 * [Adaptive Markov chain Monte Carlo: Theory and Methods - Yves Atchade, Gersende Fort and Eric Moulines, Pierre Priouret](https://github.com/ArkaB-DS/Adaptive-MCMC/blob/main/References/afmp.pdf)
