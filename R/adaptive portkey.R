@@ -25,15 +25,16 @@ p2c <- function(beta=0.75,x,y,k=10)
          }
 }
 
-## MC function
+## MC function for adaptive portkey
+# X for adaptive
 
 # beta---0.05 (for adaptive MCMC)
 
-MC <- function(N=5e4,b=0.75){
+MCA <- function(N=1e5,b=0.75){
 X <- numeric(N) # creating  the MC
 X[1] <- .1
-p=0
 
+p=0 # adaptive 
 for (i in 2:N)
 { print(i)
  Sigma_n <- (N-1)/N*var(X)
@@ -48,16 +49,59 @@ for (i in 2:N)
   p <- p+1
  } else{
  X[i] <- X[i-1]
- } 
+       } 
 }
- return (list("chain"=X, "acc.prob." =p/N))
+ return (list("chain"=X,"acc.prob" =p/N))
 }
 
+## MC function for non-adaptive portkey
 
-print(MC(b=0.99)$acc.prob.)
-ts.plot(MC(b=0.99)$chain,
+MCNA <- function(N=1e5,b=0.75){
+Z <- numeric(N) # creating  the MC
+Z[1] <- .1
+
+p=0 # adaptive 
+for (i in 2:N)
+{ print(i)
+ Y <- rnorm(1,mean=Z[i-1],sd=0.13)
+ if (Y<0) {
+ Z[i] <- Z[i-1]
+ next }
+ if(p2c(x=Z[i-1],y=Y,beta=b))
+ {
+  Z[i] <- Y
+  p <- p+1
+ } else{
+ Z[i] <- Z[i-1]
+       } 
+}
+ return (list("chain"=Z,"acc.prob"=p/N))
+}
+
+A <- MCA(b=0.75)
+B <- MCNA(b=0.75)
+
+
+#par(mfrow=c(2,1))
+print(A$acc.prob)
+ts.plot(A$chain[.99e5:1e5],lwd=2,
+xlab="Iteration",col="red",ylab="",
+main=expression(paste(beta," = 0.75")))
+print(B$acc.prob)
+lines(B$chain[.99e5:1e5],
+xlab="Iteration",col="blue",ylab="",
+main=expression(paste(beta," = 0.75")))
+
+par(mfrow=c(2,1))
+acf(A$chain,
+xlab="Iteration",col="red",ylab="",
+main=expression(paste(beta," = 0.75")))
+acf(B$chain,
 xlab="Iteration",col="seagreen",ylab="",
-main=expression(paste(beta," = 0.99")))
+main=expression(paste(beta," = 0.75")))
+
+
+
 
 
 
