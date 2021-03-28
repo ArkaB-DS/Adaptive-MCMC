@@ -35,3 +35,6 @@ To be decided yet
 * [Optimal Scaling and Adaptive Markov Chain Monte Carlo - Krzysztof Latuszynski (Slides)](https://github.com/ArkaB-DS/Adaptive-MCMC/blob/main/References/Optimal%20Scaling%20and%20Adaptive%20MCMC(Slides).pdf)
 * [The Bernoulli Factory, extensions and applications - Krzysztof Latuszynski et al. (Slides)](https://github.com/ArkaB-DS/Adaptive-MCMC/blob/main/References/The%20Bernoulli%20Factory%2C%20extensions%20and%20applications(Slides).pdf)
 * [Optimal scaling for Various Metropolis-Hastings Algorithms- Gareth O. Roberts. and  Jeffrey J. Rosenthal](https://github.com/ArkaB-DS/Adaptive-MCMC/blob/main/References/Optimal%20scaling%20for%20Various%20Metropolis-Hastings%20Algorithms.pdf)
+
+### Some Useful Links
+  1. [Adaptive MCMC for Everyone - Jeffrey J. Rosenthal](https://www.youtube.com/watch?v=DwE2-YMQR5Y)
