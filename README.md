@@ -7,8 +7,9 @@ This is a group project for the course MTH707A: Markov Chain Monte Carlo at IIT 
 3. Sanket Agrawal
 
 ### Tentative Title :
+To be decided yet
 
-### Tentative Parts of the Project
+### Tentative Parts of the Project :
 + Part 1 : Motivation for MCMC -two schemes
 + Part 2 : Adaptive MH - showing the two schmes
 + Part 3 (Main Part) : An adaptive Bernoulli factory MCMC with implementation in Gamma mixture of Weibulls
