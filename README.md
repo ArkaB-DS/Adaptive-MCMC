@@ -30,7 +30,7 @@ To be decided yet
 * [Examples of Adaptive MCMC - Gareth O. Roberts, Jeffrey S. Rosenthal](https://github.com/ArkaB-DS/Adaptive-MCMC/blob/main/References/RobertsRosenthalAdaptExamples2006.pdf)
 
 #### 2. Secondary
-* [Efficient Bernoulli factory MCMC for intractable posteriors - Vats et al.] (https://github.com/ArkaB-DS/Adaptive-MCMC/blob/main/References/Efficient%20Bernoulli%20factory%20MCMC%20for%20intractable%20posteriors.pdf)
+* [Efficient Bernoulli factory MCMC for intractable posteriors - Vats et al.](https://github.com/ArkaB-DS/Adaptive-MCMC/blob/main/References/Efficient%20Bernoulli%20factory%20MCMC%20for%20intractable%20posteriors.pdf)
 * [An Adaptive Metropolis Algorithm - Harrio et al.](https://github.com/ArkaB-DS/Adaptive-MCMC/blob/main/References/An%20Adaptive%20Metropolis%20algorithm.pdf)
 * [Optimal Scaling and Adaptive Markov Chain Monte Carlo - Krzysztof Latuszynski (Slides)](https://github.com/ArkaB-DS/Adaptive-MCMC/blob/main/References/Optimal%20Scaling%20and%20Adaptive%20MCMC(Slides).pdf)
 * [The Bernoulli Factory, extensions and applications - Krzysztof Latuszynski et al. (Slides)](https://github.com/ArkaB-DS/Adaptive-MCMC/blob/main/References/The%20Bernoulli%20Factory%2C%20extensions%20and%20applications(Slides).pdf)
