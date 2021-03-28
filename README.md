@@ -38,3 +38,4 @@ To be decided yet
 
 ### Some Useful Links
   1. [Adaptive MCMC for Everyone - Jeffrey J. Rosenthal](https://www.youtube.com/watch?v=DwE2-YMQR5Y)
+  2. [Christian Robert : Markov Chain Monte Carlo Methods - Part 1](https://youtu.be/BizPtFoyAR4) (**Not essentially for Adaptive MCMC**)
