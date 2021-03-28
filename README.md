@@ -15,3 +15,4 @@ This is a group project for the course MTH707A: Markov Chain Monte Carlo at IIT 
 * Examples of Adaptive MCMC - Gareth O. Roberts, Jeffrey S. Rosenthal
 
 #### 2. Secondary
+* Efficient Bernoulli factory MCMC for intractable posteriors - Vats et. al 
