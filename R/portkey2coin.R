@@ -1,6 +1,6 @@
 set.seed(1)
 
-### portkey 3-coin algorithm
+### portkey 2-coin algorithm
 p2c <- function(beta=0.75,x,y,k=10)
 {
  while(1){
