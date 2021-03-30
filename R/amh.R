@@ -1,6 +1,6 @@
-set.seed(1)
-library(mvtnorm)
-library(clusterGeneration)
+set.seed(1) # for reproducibility
+library(mvtnorm) # for multivariate normal 
+library(clusterGeneration) # for pd matrix generation
 
 d <- 4 # dimension
 N <- 5e5 # length of MC
@@ -14,7 +14,7 @@ E <- solve(Sigma)
 
 
 beta <- .05
-p = 0 # for calculating acceotance probability
+p = 0 # for calculating acceptance probability
 n0 = 0
 
 # implementing the adaptive MH
