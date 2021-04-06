@@ -2,9 +2,9 @@
 This is a group project for the course MTH707A: Markov Chain Monte Carlo at IIT Kanpur.
 
 ### Group Memebers : 
-1. Aritra Majumdar
-2. Arkajyoti Bhattacharjee
-3. Sanket Agrawal
+1. [Aritra Majumdar](https://github.com/aritra98-cloud)
+2. [Arkajyoti Bhattacharjee](https://github.com/ArkaB-DS)
+3. [Sanket Agrawal](https://github.com/Sanket-Ag)
 
 ### Tentative Title :
 To be decided yet
