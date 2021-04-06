@@ -1,5 +1,5 @@
 # Adaptive-MCMC
-This is a group project for the course MTH707A: Markov Chain Monte Carlo at IIT Kanpur.
+This repo is for a group project for the course MTH707A: Markov Chain Monte Carlo at IIT Kanpur.
 
 ### Group Memebers : 
 1. [Aritra Majumdar](https://github.com/aritra98-cloud)
