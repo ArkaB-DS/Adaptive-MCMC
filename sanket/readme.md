@@ -11,3 +11,4 @@ am_haario.Rdata       :  Contains a matrix named "X" recording the algorithm fro
 
 
 banana.R              :  AM algorithm from Roberts and Rosenthal (2009) for an irregularly shaped target.
+plots_banana.pdf      :  Trace plots from banana.R
