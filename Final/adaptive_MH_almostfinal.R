@@ -1,13 +1,12 @@
 set.seed(1) # for reproducibility
 library(mvtnorm) # to deal with multivariate normal distribution
-library(mvnfast)
+library(tictoc)
 
-d <- 10 # dimension
-N <- 1e5 # length of MC
-X <- matrix(0,nrow=N+1,ncol=d)
+d <- 20 # dimension
+N <- 2e5 # length of MC
+X <- matrix(10,nrow=N+1,ncol=d)
 
-
-# generating a Sigma for the target distribution
+# generating a Sigma for the target distributions
 M <- matrix(rnorm(d*d),nrow=d)
 Sigma_inv <- solve(M%*%t(M))
 
@@ -15,10 +14,11 @@ beta <- .05
 p=0 # for calculating acceptance probability
 
 # implementing the adaptive MH
+tic()
 for(i in 2:(N+1))
 {
  if (i%%1e4==0) print(i)
- # proposing
+# proposing
  if (i<=2*d) 
      {
      Y<- rnorm( n = d , mean = X[i-1,] , sd = 0.1/sqrt(d) )
@@ -40,7 +40,13 @@ for(i in 2:(N+1))
   X[i,] <- X[i-1,]
        }
 }
+toc()
 cat("The acceptance probability is: ",p/N,"\n")
-#par(mfrow=c(2,1),bg="pink") 
-ts.plot(X[1:1e4,1],ylab=i,col="brown")
-# acf(X[,3],ylab=i,col="blue",main="")
+pdf("Final_Plots.pdf")
+for (i in 1:d) ts.plot(X[,i],ylab=i)
+for (i in 1:d) acf(X[,i],ylab=i,col="blue",main="")
+dev.off()
+R=range(Sigma_n-M%*%t(M))
+prob=p/N
+FNorm=sum((Sigma_n-M%*%t(M))^2)
+save(X,prob,R,FNorm,file="AM_d10_1e5_start10.Rdata")
