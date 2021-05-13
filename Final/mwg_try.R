@@ -3,6 +3,8 @@ library(tictoc)
 
 K <- 10        # no of theta parameters
 R <- seq(5, 95, by = 10)
+sumR <- c(0, cumsum(R))
+
 Y <- numeric(0)
 
 for(i in 1:K){
@@ -10,7 +12,7 @@ for(i in 1:K){
 }
 
 
-B <- 1e4 
+B <- 1e5
 
 ###########  Declaration and Initialization of parameter vectors
 
@@ -28,21 +30,21 @@ V[1] <- (sum((Y - rep(theta[1, ], R))^2)/2 + 1)/(sum(R)/2 + 1)
 #################################################################
 
 
-ls <- rep(0, K + 3)       #####  ls ~ [A, u, theta1, theta2, ... , thetaK, V]
-p <- rep(0, K + 3)
-sig <- exp(ls)
+ls <- matrix(0, nrow = B, ncol = K + 2)       #####  ls ~ [A, u, theta1, theta2, ... , thetaK, V]
+p <- rep(0, K + 2)
+sig <- exp(ls[1, ])
 
 tic()
 
 for(n in 1:B){
 
-	if(n%%1000 == 0) print(n)
+	if(n%%10000 == 0) print(n)
 
 	for(i in 2:51){
 
 		j = (n - 1)*50 + i
-		y <- rnorm(K+3, mean = c(A[j-1], u[j-1], theta[j-1, ], V[j-1]), sd = sig)
-		z <- log(runif(K+3))
+		y <- rnorm(K+2, mean = c(A[j-1], u[j-1], theta[j-1, ]), sd = sig)
+		z <- log(runif(K+2))
 
 
 		### Updating A
@@ -51,7 +53,9 @@ for(n in 1:B){
 			A[j] <- A[j-1]
 		}
 		else{
-			r <- 1/A[j-1] - 1/y[1] + 2*(log(A[j-1]) - log(y[1]))
+			r <- (2*K - 2)*(log(y[1]) - log(A[j-1])) + (1/A[j-1] - 1/y[1]) + 
+					sum(log(A[j-1]^2 + (theta[j-1, ] - u[j-1])^2)) - sum(log(y[1]^2 + (theta[j-1, ] - u[j-1])^2))
+			
 			if(z[1] < r){
 				A[j] <- y[1]
 				p[1] <- p[1] + 1
@@ -60,11 +64,15 @@ for(n in 1:B){
 			}
 		}
 		
+		### Updating V
+
+		temp <- rgamma(1, shape = sum(R)/2 + 1, rate = sum((Y - rep(theta[j, ], R))^2)/2 + 1)
+		V[j] <- 1/temp
 
 
 		### Updating u
 
-		r <- (u[j-1]^2 - y[2]^2)/2
+		r <- (u[j-1]^2 - y[2]^2)/2 + sum(log(A[j]^2 + (theta[j-1, ] - u[j-1])^2)) - sum(log(A[j]^2 + (theta[j-1, ] - y[2])^2))
 
 		if(z[2] < r){
 			u[j] <- y[2]
@@ -78,7 +86,8 @@ for(n in 1:B){
 
 		for(k in 1:K){
  
-			r <- log(A[j]^2 + (theta[j-1, k] - u[j])^2) - log(A[j]^2 + (y[2+k] - u[j])^2)
+			r <- (sum((Y[(sumR[k]+1):sumR[k+1]] - theta[j-1, k])^2) - sum((Y[(sumR[k]+1):sumR[k+1]] - y[2+k])^2))/(2*V[j])
+					+ log(A[j]^2 + (theta[j-1, k] - u[j])^2) - log(A[j]^2 + (y[2+k] - u[j])^2)
 
 			if(z[2+k] < r){
 				theta[j, k] <- y[2+k]
@@ -88,32 +97,20 @@ for(n in 1:B){
 			}
 		}
 
-		### Updating V
-
-		if(y[K+3] <= 0){
-			V[j] <- V[j-1]
-		}
-		else{
-			r <- (sum((Y - rep(theta[j, ], R))^2)/2 + 1)*(1/V[j-1] - 1/y[K+3]) + (sum(R)/2 + 2)*(log(V[j-1]) - log(y[K+3]))	
-			if(z[K+3] < r){
-				V[j] <- y[K+3]
-				p[K+3] <- p[K+3] + 1
-			}else{
-				V[j] <- V[j-1]
-			}
-		}
-		
-
 	}
 
 	####  Updating ls and sigma
 
 	t <- as.numeric(p/(n*50) <= 0.44)
-	ls <- ls + ((-1)^(t))*min(0.01, n^(-1/2))
-	sig <- exp(ls)
+	ls[n + 1, ] <- ls[n, ] + ((-1)^(t))*min(0.01, n^(-1/2))
+	sig <- exp(ls[n + 1, ])
 }
 
 toc()
 
-print(p)
-print(ls)
+print(p/(50*B))
+
+for(k in 1:3)  ts.plot(ls[, 2+k], type = "l")
+
+
+
