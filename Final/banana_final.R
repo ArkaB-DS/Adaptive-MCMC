@@ -52,7 +52,7 @@ for(i in 2:N){
 }
 toc()
 
-pdf("plots_banana.pdf")
+pdf("plots_banana_d20_2e5.pdf")
 for(k in 1:d)  ts.plot(X[, k], type = "l", main = "Trace plot for AM")
 dev.off()
 prob<-p/N
