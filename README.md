@@ -23,8 +23,8 @@ We briefly review the adaptive Markov chain Monte Carlo techniques using some ex
   	- Diminishing adaptation and Containment
 
 ### Directory :
-	+ Code  : Contains relevant code for generating plots in the report
-	+ Plots : Contains plots
+  + Code  : Contains relevant code for generating plots in the report
+  + Plots : Contains plots
 
 ### Key References:
 
