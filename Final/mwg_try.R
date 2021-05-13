@@ -1,4 +1,6 @@
 
+library(tictoc)
+
 K <- 10        # no of theta parameters
 r <- seq(5, 95, by = 10)
 Y <- numeric(0)
@@ -30,7 +32,11 @@ ls <- rep(0, K + 3)       #####  ls ~ [A, u, theta1, theta2, ... , thetaK, V]
 p <- rep(0, K + 3)
 sig <- exp(ls)
 
+tic()
+
 for(n in 1:B){
+
+	print(n)
 
 	for(i in 2:51){
 
@@ -96,6 +102,8 @@ for(n in 1:B){
 	ls <- ls + ((-1)^(t))*min(0.01, n^(-1/2))
 	sig <- exp(ls)
 }
+
+toc()
 
 print(p)
 print(ls)
