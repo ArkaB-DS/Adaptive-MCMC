@@ -2,15 +2,15 @@
 library(tictoc)
 
 K <- 10        # no of theta parameters
-r <- seq(5, 95, by = 10)
+R <- seq(5, 95, by = 10)
 Y <- numeric(0)
 
 for(i in 1:K){
-	Y <- c(Y, rnorm(r[i], mean = i - 1, sd = 10))
+	Y <- c(Y, rnorm(R[i], mean = i - 1, sd = 10))
 }
 
 
-B <- 2e3 
+B <- 1e4 
 
 ###########  Declaration and Initialization of parameter vectors
 
@@ -22,7 +22,7 @@ u <- rep(0, 50*B + 1)
 theta <- matrix(0, nrow = 50*B + 1, ncol = K)
 
 V <- rep(0, 50*B + 1)
-V[1] <- (sum((Y - rep(theta[1, ], r))^2)/2 + 1)/(sum(r)/2 + 1)
+V[1] <- (sum((Y - rep(theta[1, ], R))^2)/2 + 1)/(sum(R)/2 + 1)
 
 
 #################################################################
@@ -36,7 +36,7 @@ tic()
 
 for(n in 1:B){
 
-	print(n)
+	if(n%%1000 == 0) print(n)
 
 	for(i in 2:51){
 
@@ -47,21 +47,26 @@ for(n in 1:B){
 
 		### Updating A
 
-		r <- 1/A[j-1] - 1/y[1] + 2*(log(A[j-1]) - log(y[1]))
-
-		if(z[1] < 1){
-			A[j] <- y[1]
-			p[1] <- p[1] + 1
-		}else{
+		if(y[1] <= 0){
 			A[j] <- A[j-1]
 		}
+		else{
+			r <- 1/A[j-1] - 1/y[1] + 2*(log(A[j-1]) - log(y[1]))
+			if(z[1] < r){
+				A[j] <- y[1]
+				p[1] <- p[1] + 1
+			}else{
+				A[j] <- A[j-1]
+			}
+		}
+		
 
 
 		### Updating u
 
 		r <- (u[j-1]^2 - y[2]^2)/2
 
-		if(z[2] < 1){
+		if(z[2] < r){
 			u[j] <- y[2]
 			p[2] <- p[2] + 1
 		}else{
@@ -75,7 +80,7 @@ for(n in 1:B){
  
 			r <- log(A[j]^2 + (theta[j-1, k] - u[j])^2) - log(A[j]^2 + (y[2+k] - u[j])^2)
 
-			if(z[2+k] < 1){
+			if(z[2+k] < r){
 				theta[j, k] <- y[2+k]
 				p[2+k] <- p[2+k] + 1
 			}else{
@@ -85,14 +90,19 @@ for(n in 1:B){
 
 		### Updating V
 
-		r <- (sum((Y - rep(theta[j, ], r))^2)/2 + 1)*(1/V[j-1] - 1/y[K+3]) + (sum(r)/2 + 2)*(log(V[j-1]) - log(y[K+3]))
-
-		if(z[K+3] < 1){
-			V[j] <- y[K+3]
-			p[K+3] <- p[K+3] + 1
-		}else{
+		if(y[K+3] <= 0){
 			V[j] <- V[j-1]
 		}
+		else{
+			r <- (sum((Y - rep(theta[j, ], R))^2)/2 + 1)*(1/V[j-1] - 1/y[K+3]) + (sum(R)/2 + 2)*(log(V[j-1]) - log(y[K+3]))	
+			if(z[K+3] < r){
+				V[j] <- y[K+3]
+				p[K+3] <- p[K+3] + 1
+			}else{
+				V[j] <- V[j-1]
+			}
+		}
+		
 
 	}
 
