@@ -18,11 +18,9 @@ A[1] <- 0.5
 u <- rep(0, 50*B + 1)
 
 theta <- matrix(0, nrow = 50*B + 1, ncol = K)
-theta_vec <- rep(theta, r)
-
 
 V <- rep(0, 50*B + 1)
-V[1] <- ((sum((Y - theta_vec)^2) + 2)/2)/(sum(r)/2 + 1)
+V[1] <- (sum((Y - rep(theta[1, ], r))^2)/2 + 1)/(sum(r)/2 + 1)
 
 
 #################################################################
@@ -81,7 +79,7 @@ for(n in 1:B){
 
 		### Updating V
 
-		r <- ((sum((Y - theta_vec)^2) + 2)/2)*(1/V[j-1] - 1/y[K+3]) + (sum(r)/2 + 2)*(log(V[j-1]) - log(y[K+3]))
+		r <- (sum((Y - rep(theta[j, ], r))^2)/2 + 1)*(1/V[j-1] - 1/y[K+3]) + (sum(r)/2 + 2)*(log(V[j-1]) - log(y[K+3]))
 
 		if(z[K+3] < 1){
 			V[j] <- y[K+3]
