@@ -1,5 +1,5 @@
 # Adaptive-MCMC
-This repo is for a group project for the course MTH707A: Markov Chain Monte Carlo at IIT Kanpur.
+This repository is for a group project for the course *MTH707A: Markov Chain Monte Carlo* during the academic session 2021-2022 (even semester) at IIT Kanpur.
 
 ### Group Memebers : 
 1. [Aritra Majumdar](https://github.com/aritra98-cloud)
@@ -7,24 +7,24 @@ This repo is for a group project for the course MTH707A: Markov Chain Monte Carl
 3. [Sanket Agrawal](https://sites.google.com/view/agrawalsanket)
 
 ### Title :
-Adaptive Markov chain Monte Carlo: A review report
+`Adaptive Markov chain Monte Carlo: A review report`
 
 ### Abstract:
-We briefly review the adaptive Markov chain Monte Carlo techniques using some examples. We also talk about the theoretical properties like stationarity and ergodicity of such algorithms.
+We briefly review the adaptive Markov chain Monte Carlo techniques using some examples. We also talk about the theoretical properties like *stationarity* and *ergodicity* of such algorithms.
 
 ### Report Outline :
-+ Section 1 : Introduction
-+ Section 2 : Setup and Notation
-+ Section 3 : Examples
-	- Adaptive Metropolis algorithm
-	- Adaptive Metropolis within Gibbs algorithm
-+ Section 4 : Ergodicity 
-  	- Counter-examples 
-  	- Diminishing adaptation and Containment
+
+|Section|Topic|
+|-------|-----|
+|1|Introduction|
+|2|Setup and Notation|
+|3|Examples<ul><li>Adaptive Metropolis algorithm</li><li>A banana-shaped distribution</li><li> Adaptive Metropolis within Gibbs algorithm</li></ul>|
+|4|Ergodicity|<ul><li> Counter-examples</li><li>Diminishing adaptation and Containment</li></ul>
+|5|Conclusions|
 
 ### Directory :
-  + Code  : Contains relevant code for generating plots in the report
-  + Plots : Contains plots
+  + **Code**  : Contains relevant code for generating plots in the report
+  + **Plots** : Contains plots
 
 ### Key References:
 
