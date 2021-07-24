@@ -1,5 +1,5 @@
 # Adaptive-MCMC
-This repository is for a group project for the course *MTH707A: Markov Chain Monte Carlo* during the academic session 2021-2022 (even semester) at IIT Kanpur.
+> This repository is for a group project for the course *MTH707A: Markov Chain Monte Carlo* during the academic session 2021-2022 (even semester) at IIT Kanpur.
 
 ### Group Memebers : 
 1. [Aritra Majumdar](https://github.com/aritra98-cloud)
@@ -10,7 +10,7 @@ This repository is for a group project for the course *MTH707A: Markov Chain Mon
 `Adaptive Markov chain Monte Carlo: A review report`
 
 ### Abstract:
-We briefly review the adaptive Markov chain Monte Carlo techniques using some examples. We also talk about the theoretical properties like *stationarity* and *ergodicity* of such algorithms.
+> We briefly review the adaptive Markov chain Monte Carlo techniques using some examples. We also talk about the theoretical properties like *stationarity* and *ergodicity* of such algorithms.
 
 ### Report Outline :
 
