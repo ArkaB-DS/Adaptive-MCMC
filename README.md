@@ -32,7 +32,7 @@
 * [Coupling and Ergodicity of Adaptive MCMC algorithms - Gareth O. Roberts, Jeffrey S. Rosenthal](http://probability.ca/jeff/ftpdir/adapt.pdf) 
 * [Optimal Proposal Distributions and Adaptive MCMC - Jeffrey Rosenthal](http://probability.ca/jeff/ftpdir/galinart.pdf) 
 * [Adaptive Markov chain Monte Carlo: Theory and Methods - Yves Atchade, Gersende Fort and Eric Moulines, Pierre Priouret](http://dept.stat.lsa.umich.edu/~yvesa/afmp.pdf)
-* [An Adaptive Metropolis Algorithm - Harrio et al.](https://github.com/ArkaB-DS/Adaptive-MCMC/blob/main/References/An%20Adaptive%20Metropolis%20algorithm.pdf)
+* [An Adaptive Metropolis Algorithm - Harrio et al.](https://projecteuclid.org/journals/bernoulli/volume-7/issue-2/An-adaptive-Metropolis-algorithm/bj/1080222083.full)
 
 ### Other useful resources
 
