@@ -7,7 +7,7 @@
 3. [Sanket Agrawal](https://sites.google.com/view/agrawalsanket)
 
 ### Title :
-`Adaptive Markov chain Monte Carlo: A review report`
+`Adaptive Markov chain Monte Carlo: A Review `
 
 ### Abstract:
 > We briefly review the adaptive Markov chain Monte Carlo techniques using some examples. We also talk about the theoretical properties like *stationarity* and *ergodicity* of such algorithms.
@@ -23,8 +23,8 @@
 |5|Conclusions|
 
 ### Directory :
-  + **Code**  : Contains relevant code for generating plots in the report
-  + **Plots** : Contains plots
+  + [**Code**](https://github.com/ArkaB-DS/Adaptive-MCMC/tree/main/Code)  : Contains relevant code for generating plots in the report
+  + [**Plots**](https://github.com/ArkaB-DS/Adaptive-MCMC/tree/main/Plots) : Contains plots
 
 ### Key References:
 
